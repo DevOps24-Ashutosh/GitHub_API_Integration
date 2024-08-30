@@ -25,12 +25,16 @@ API_URL="https://api.github.com"
 USERNAME=$username
 TOKEN=$token
 
-
 # User and Repository information
 # Two arguments are being passed - 1st as repo owner(organisation name 'DevOps24-Ashutosh')
 # and second is repo name "GitHub_API_Integration"
 REPO_OWNER=$1
 REPO_NAME=$2
+
+if [ $# -ne 2 ]; then
+    echo "Provide 2 args"
+    exit 1
+fi
 
 # Function to make a get request to GitHUb API
 function github_api_get {
